@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  db:
+    image: my-mysql-image
+    environment:
+      MYSQL_ROOT_PASSWORD: 14122000
+    volumes:
+      - /Users/toilathor/DEV/Docker/Day1/data:/var/lib/mysql

@@ -1,0 +1,40 @@
+version: '3'
+services:
+  db1:
+    image: my-mysql-image
+    container_name: container-1
+    build: .
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 14122000
+    volumes:
+      - /Users/toilathor/DEV/Docker/Day2/data1:/var/lib/mysql
+    cpus: 0.5
+    mem_limit: 1g
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+          cpus: '0.5'
+    ports:
+      - "3306:3306"
+  db2:
+    image: my-mysql-image
+    container_name: container-2
+    build: .
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 14122000
+    volumes:
+      - /Users/toilathor/DEV/Docker/Day2/data2:/var/lib/mysql
+    cpus: 1.0
+    mem_limit: 1.5g
+    deploy:
+      resources:
+        limits:
+          memory: 1.5G
+          cpus: '1.0'
+    ports:
+      - "3307:3306"
+networks:
+  db-network:
